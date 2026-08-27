@@ -65,3 +65,40 @@ Thumbs.db
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
 .project-config.json
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+build_venv/
+venv/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+
+# PyInstaller build output
+build/
+dist/
+
+# Inno Setup output
+installer/output/*.exe
+
+# Runtime data (never ship customer data with the source)
+data/uploads/*
+data/processed/*
+data/exports/*
+data/backups/*
+data/logs/*
+!data/uploads/.gitkeep
+!data/processed/.gitkeep
+!data/exports/.gitkeep
+!data/backups/.gitkeep
+!data/logs/.gitkeep
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
