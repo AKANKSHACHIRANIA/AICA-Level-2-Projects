@@ -106,283 +106,280 @@ pnpm tunnel
 ## 🧪 Verification & Automated Tests
 # TAX COMMAND CENTRE
 ## AI-Powered Corporate Direct Tax Compliance, Assessment & Litigation Management
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-**TAX COMMAND CENTRE** is an enterprise-grade direct tax system of record, automated workflow orchestration engine, AI intelligence layer, and executive management control tower designed for Corporate Heads of Tax, Tax Directors, Litigation Specialists, and CFOs.
+# Run and deploy your AI Studio app
 
-The system manages the end-to-end direct tax lifecycle under the **Income-tax Act, 1961** — from initial notice ingestion and OCR metadata extraction to evidence collation, AI-assisted legal drafting, maker-checker approvals, e-filing submissions, assessment monitoring, litigation defense, and Ind AS 37 contingent liability reporting.
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/31b21528-31d6-4768-be02-f0ef92331fd9
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
+# 📊 Stock Statement + ICAI UDIN Automation Tool
+
+**A Professional Automation Solution for Chartered Accountants**
+
+## 🎯 Project Overview
+
+This is an advanced **automation tool** designed specifically for **Chartered Accountants (CAs)** to streamline the process of:
+
+- ✅ Generating **Stock Statements** 
+- ✅ Creating **Drawing Power Certificates**
+- ✅ Automating **ICAI UDIN** (Unique Document Identification Number) certificate registration
+- ✅ Managing multiple **bank clients** and financial data
+- ✅ Auto-filling **ICAI forms** with UDIN integration
+
+### 🌟 Key Features
+
+| Feature | Description |
+|---------|-------------|
+| **Browser Automation** | Uses Selenium + Microsoft Edge for ICAI website automation |
+| **Data Management** | JSON-based storage for clients, debtors, creditors, and stock information |
+| **UDIN Integration** | Automated UDIN certificate generation and submission to ICAI portal |
+| **Multi-Client Support** | Manage multiple clients with different banks and credit limits |
+| **CA Profile Storage** | Secure storage of CA credentials (ICAI username, FRN, membership details) |
+| **Form Recording** | Records user steps for debugging and process optimization |
+| **HTML Interface** | User-friendly web-based interface for data entry |
+| **Batch Processing** | Process multiple certificates in one session |
 
 ---
 
-## 🚀 Standalone Windows Executable & Setup Installer
+## 🛠️ Tech Stack
 
-### 1. One-Click Setup & Desktop Shortcut Installer:
-- Double-click **`TaxCommandCentre_Setup.bat`** (or run `Install_TaxCommandCentre.ps1` in PowerShell).
-- This creates a **Tax Command Centre** shortcut on your Windows Desktop, validates dependencies, and immediately opens the application in your browser.
+- **Backend**: Python 3 with Selenium WebDriver
+- **Frontend**: HTML5 + Angular (ng-select for dropdowns)
+- **Data Storage**: JSON files (structured data format)
+- **Browser Automation**: Microsoft Edge WebDriver
+- **Platform**: Windows (.bat files for execution)
 
-### 2. Direct Standalone Launch:
-- Double-click **`TaxCommandCentre.exe`** (or `TaxCommandCentre_Start.bat`).
-- The application starts automatically at **`http://localhost:3000`** with zero external dependencies required.
+---
 
-### 3. Rebuilding the Standalone Executable:
+## 📋 Prerequisites
+
+### System Requirements
+- Windows 10 or higher
+- Python 3.7+
+- Microsoft Edge browser
+- Internet connection (for ICAI portal access)
+
+### Software Dependencies
+- **Python Libraries**: 
+  - `selenium` (for browser automation)
+  - Additional dependencies auto-installed on first run
+
+### ICAI Credentials Required
+- ICAI Member Username (Email format: `MEMBERSHIP_NO@icai.org`)
+- ICAI Portal Password
+- Firm Registration Number (FRN)
+- CA Membership Number
+
+---
+
+## 📦 Project Structure
+
+```
+Stock Statement UDIN Automation/
+│
+├── RUN_STOCK_STATEMENT_UDIN_V21_FIXED.py      # Main automation script
+├── Stock_Statement_Drawing_Power_UDIN_Integrated_v20.html  # UI Interface
+├── RUN_STOCK_STATEMENT_UDIN_V21.bat            # Batch file to run tool
+├── RECORD_ICAI_STEPS.bat                       # Batch file to record steps
+│
+├── StockStatementData/                         # Data folder (created automatically)
+│   ├── clients.json                            # Client master data
+│   ├── debtors.json                            # Sundry Debtors list
+│   ├── creditors.json                          # Sundry Creditors list
+│   ├── stock.json                              # Stock information
+│   ├── profiles.json                           # CA profile & credentials
+│   ├── stock-statement_*.json                  # Form state backups
+│   └── recordings/                             # Step recordings
+│
+├── README.md                                   # This file
+├── DOCUMENTATION.md                            # Detailed process guide
+└── DATA_STRUCTURE.md                           # Data format reference
+
+```
+
+---
+
+## 🚀 Installation & Setup
+
+### Step 1: Download Python
+1. Visit https://www.python.org/
+2. Download **Python 3.9 or higher**
+3. During installation, **TICK the checkbox** "Add Python to PATH"
+4. Click Install
+
+### Step 2: Extract Project Files
+- Extract all project files to a folder (e.g., `C:\StockStatementTool\`)
+- Keep all files together in the same folder
+
+### Step 3: Prepare Your Data
+- Edit `StockStatementData/profiles.json` with your CA credentials
+- Add your clients in `StockStatementData/clients.json`
+- Update debtors and creditors data as needed
+
+### Step 4: First Run
+- Double-click `RUN_STOCK_STATEMENT_UDIN_V21.bat`
+- The tool will:
+  1. Check for Python installation
+  2. Install Selenium (if not present)
+  3. Open the HTML interface
+  4. Launch Microsoft Edge for ICAI automation
+
+---
+
+## 💻 Usage Guide
+
+### Running the Tool
+
 ```bash
-npm run package:exe
-```
-This builds the production frontend, compiles the Express backend server with built-in PDF OCR text extraction and direct tax parser, and generates `TaxCommandCentre.exe`.
+# Run the main application
+RUN_STOCK_STATEMENT_UDIN_V21.bat
 
-### 4. Clean Slate vs Demo Dataset:
-- To start with an empty database for your own live tax notices, click **"Start Clean Slate"** in the top-right user menu or in the **Export & Backup Center**.
-- To restore the standard demonstration dataset anytime, click **"Reload Demo Data"**.
+# Record ICAI steps for debugging
+RECORD_ICAI_STEPS.bat
+```
+
+### Workflow
+
+1. **Launch Tool**: Double-click `.bat` file
+2. **Select CA Profile**: Choose from saved profiles (picks your CA credentials)
+3. **Enter Client Details**: 
+   - Select client name
+   - Enter statement date
+   - Choose certificate type (Stock Statement, Drawing Power, etc.)
+4. **Add Figures**:
+   - Sundry Debtors amount
+   - Stock value
+   - Sundry Creditors amount
+5. **Auto-Fill ICAI Form**: Tool automatically fills the ICAI portal
+6. **Enter CAPTCHA**: Manually enter CAPTCHA (shown in HTML interface, not Edge window)
+7. **Generate UDIN**: Submit and receive UDIN from ICAI
+8. **Save Certificate**: Download and store UDIN certificate
 
 ---
 
-## 🏛️ Comprehensive Direct Tax Lifecycle Coverage
+## 📊 Data Files Explained
 
-```mermaid
-flowchart TD
-    A[NOTICE / TAX COMMUNICATION RECEIVED] --> B[CAPTURE & OCR INGESTION]
-    B --> C[METADATA & ISSUE EXTRACTION]
-    C --> D[DUPLICATE DETECTION & MATTER CREATION]
-    D --> E[TAX & BUSINESS OWNER ASSIGNMENT]
-    E --> F[INFORMATION REQUEST & CHECKLIST]
-    F --> G[EMAIL NOTIFICATION & SLA TRACKING]
-    G --> H[INFORMATION & DOCUMENT RECEIPT]
-    H --> I[REMINDER & ESCALATION ENGINE]
-    I --> J[EVIDENCE MATRIX VALIDATION]
-    J --> K[AI GAP ANALYSIS & TAX ANALYSIS]
-    K --> L[AI RESPONSE BUILDER DRAFTING]
-    L --> M[TAX REVIEW & MAKER-CHECKER APPROVAL]
-    M --> N[E-PROCEEDINGS SUBMISSION]
-    N --> O[ACKNOWLEDGEMENT RECORDING]
-    O --> P[COMPLIANCE CLOSURE]
-    P --> Q[ASSESSMENT MONITORING & ORDER TRACKING]
-    Q --> R[DEMAND / REFUND / EXPOSURE LEDGER]
-    R --> S[LITIGATION & APPEALS CIT(A) / ITAT / HC / SC]
-    S --> T[CONTINGENT LIABILITY & IND AS 37 QUARTERLY MIS]
-    T --> U[YEAR-WISE CORPORATE TAX MEMORY]
-    U --> V[FULL BACKUP, RESTORE & ARCHIVE]
-```
+### `clients.json`
+Stores master client data with bank and credit details.
 
----
+**Fields**:
+- `name`: Company/Borrower name
+- `pan`: PAN number (10 characters)
+- `address`: Complete address
+- `gst`: GSTIN (15 characters)
+- `bank`: Bank name (e.g., "State Bank of India")
+- `branch`: Branch name
+- `loanAccountNo`: Loan/CC Account number
+- `sanctionLimit`: Credit limit in rupees
 
-## 🛠️ Key Modules & Capabilities
+### `debtors.json` / `creditors.json` / `stock.json`
+PDF backup of financial statements (base64 encoded).
 
-### 1. 🛡️ Tax Control Tower (Executive Dashboard)
-- Answers the **5 Core Tax Leader Questions**:
-  1. **What Came In?** (New notices, queries, and statutory communications)
-  2. **What Is Due?** (Statutory deadlines, internal review targets, and hearings)
-  3. **What Is Stuck?** (Pending checklists, overdue requests, and blocked dependencies)
-  4. **What Is Risky?** (Disputed exposure, critical section risks, and high-value assessments)
-  5. **What Needs My Decision?** (Draft submissions awaiting manager review or head approval)
-- Dynamic drill-down filters by **Legal Entity** and **Assessment Year (AY)**.
-- Stage-by-stage pipeline visualization across the 8 lifecycle stages.
+### `profiles.json`
+CA credentials and firm information.
 
-### 2. 📥 Central Tax Communication & Notice Inbox
-- Ingest notices via PDF, high-res scan image, text, or e-Filing API.
-- Multimodal OCR & metadata extraction:
-  - Assessee Entity, PAN, TAN, AY, FY, Notice DIN, Section (e.g. 143(2), 142(1), 148, 154, 270A).
-  - Issuing Authority (NFAC Delhi, Jurisdictional AO).
-  - Statutory response deadlines & hearing dates.
-  - Automated extraction of disputed tax issues, questions, and required evidence.
-- **Cryptographic Duplicate Detection**: Checks DIN, notice number, entity, AY, section, and file fingerprint to prevent duplicate dossier creation.
-
-### 3. 📂 Tax Matter System of Record & Issue Engine
-- Unique identifier per tax matter (e.g., `DT-2026-0027`).
-- Full immutable chronological audit trail for every action, status change, and note.
-- Multi-issue granular tracking (e.g., `ISS-01: Section 43B`, `ISS-02: Section 14A`, `ISS-03: Section 80JJAA`, `ISS-04: Section 56(2)(viib)`).
-- Kanban Board and Structured Data Table views with advanced search and risk-level filters.
-- **Legal Hold** flag preventing accidental archiving or destruction during active scrutiny/litigation.
-
-### 4. 📋 Information Requests, Checklists & Automated SLA Engine
-- Auto-generates department-specific questionnaires for Business Focal Points (Finance, HR, Payroll, Treasury, M&A).
-- Multi-stage lifecycle: `REQUESTED` → `ACKNOWLEDGED` → `PARTIALLY_RECEIVED` → `UNDER_REVIEW` → `COMPLETE` → `VALIDATED`.
-- **Configurable SLA Reminders & Escalations**:
-  - Day 0: Initial Request Dispatched
-  - Day 3: Reminder 1 (Friendly reminder)
-  - Day 5: Reminder 2 (Escalation warning)
-  - Day 7: Final Reminder (Urgent action)
-  - Day 8: Management Escalation (Notifies Business Head & CFO)
-- Simulated business response adapter for complete offline/demo demonstration.
-
-### 5. 🔒 Evidence Room & Immutability Matrix
-- Secure evidence vault categorized into Notice, Ledger, Invoice, Agreement, Reconciliation, Tax Audit Form 3CD, Challans, and Case Law.
-- Document confidentiality classifications: `INTERNAL`, `CONFIDENTIAL`, `HIGHLY_CONFIDENTIAL`, `LITIGATION_CONFIDENTIAL`, `LEGAL_PRIVILEGED`.
-- **Issue-to-Annexure Assertion Mapping Matrix**: Maps factual assertions to supporting documents and automatically assigns formal Annexure numbers (Annexure 1, 2, 3...).
-- Cryptographic locking: Once a submission is recorded, referenced evidence documents are immutably locked against modification.
-
-### 6. ✍️ AI Response Builder & Question Coverage Verifier
-- Formulates formal clause-by-clause legal submissions addressed to the **National Faceless Assessment Centre (NFAC) / Assessing Officer**.
-- Grounded strictly in:
-  - Assessee facts & General Ledger extracts
-  - Verified documentary evidence & Bank TRRN Challans
-  - Statutory provisions of the Income-tax Act, 1961
-  - Preceding year accepted positions (Rule of Consistency under *Radhasoami Satsang*)
-  - Binding Supreme Court & High Court precedents (*Alom Extrusions*, *South Indian Bank*, *Smifs Securities*, etc.)
-- **100% Question Coverage Checklist**: Guarantees no notice question is left unanswered.
-- **Maker-Checker Protocol**: Response must pass Tax Reviewer check and Head of Tax digital authorization before e-filing.
-
-### 7. 📤 e-Proceedings Submissions & Ack Register
-- Records official filing mode (`E_PROCEEDINGS_PORTAL`, `EMAIL_SUBMISSION`, `PHYSICAL_TAPPAL`, `ITBA_API`).
-- Generates and stores ITBA Acknowledgement Numbers, transaction hashes, and submission timestamps.
-- **Distinction between Compliance Closed vs Matter Closed**: Submitting a response closes statutory compliance while assessment monitoring remains active.
-
-### 8. ⚖️ Litigation, Appeals & Hearing Management
-- Tracks disputes across appellate stages: `Assessment` → `Rectification` → `CIT(Appeals)` → `ITAT` → `High Court` → `Supreme Court`.
-- Tracks Appeal Numbers, Grounds of Appeal, External Senior Counsels, and Stay of Demand status (20% Section 220(6) pre-deposits).
-- Hearing calendar with bench details, hearing objectives, and outcome records.
-
-### 9. 📊 Contingent Liability & Quarterly Exposure Movement (Ind AS 37)
-- Authoritative financial movement ledger reconciling Gross Demands, Amounts Paid Under Protest / Stayed, and Net Contingent Liability.
-- Quarter-on-quarter movement statements with mandatory accounting explanations.
-- Automatically generates statutory footnote disclosures for Corporate Financial Statements and Statutory Auditors.
-
-### 10. 🧠 Corporate Tax Memory & Knowledge Centre
-- Institutional repository of historical submissions, standard operating procedures, and indexed case laws.
-- **Recurring Issue Detection**: Highlights persistent multi-year disputes (e.g., Section 43B disallowances across AY 2021-22 to AY 2025-26) and retrieves prior-year winning arguments.
-
-### 11. 🤖 AI Tax Copilot (Gemini 3.7 Flash)
-- Natural language interactive assistant with full contextual memory of active corporate tax matters.
-- Assists in drafting rebuttal grounds, Section 270AA penalty immunity applications, and adjournment petitions.
-- Displays confidence score, applicable statutory sections, and `[VERIFICATION REQUIRED]` tags for citations requiring human validation.
-
-### 12. 📦 Data Portability, Excel/PDF Reporting & Full Backup/Restore
-- **Multi-Sheet Excel Export**: Generates complete Excel workbooks covering Matters, Notices, Issues, Checklists, Litigation, Demands, and Audit Logs.
-- **Executive Landscape MIS PDF**: Professional A4 landscape management report ready for Board and CFO review.
-- **Full System Backup (ZIP)**: Generates a complete, structured archive including `README.txt`, JSON databases, and CSV records.
-- **Database Restore & Historical Import**: Allows restoring full backups or importing legacy Excel/CSV notice trackers.
+**Fields**:
+- `id`: Unique profile ID
+- `label`: Display name
+- `icaiUsername`: ICAI login (format: `MEMBERSHIP_NO@icai.org`)
+- `icaiPassword`: ICAI portal password
+- `firmName`: Registered firm name
+- `caName`: CA's full name
+- `membershipNo`: ICAI membership number
+- `frn`: Firm Registration Number
+- `certificatePlace`: Signing location (usually city name)
 
 ---
 
-## 💻 Quick Start & Developer Execution
+## 🔧 Troubleshooting
 
-### 1. Launch Standalone Executable (Windows)
-Double-click `TaxCommandCentre.exe` or execute from PowerShell:
-```powershell
-.\TaxCommandCentre.exe
-```
+### Issue: Python not found
+**Solution**: Reinstall Python and tick "Add Python to PATH"
 
-### 2. Or Run in Development Mode via Node.js
+### Issue: Selenium not installing
+**Solution**: Open Command Prompt as Administrator and run:
 ```bash
-npm install
-npm run dev
+python -m pip install --upgrade selenium
 ```
-Navigate to: `http://localhost:3000`
 
-### 3. Rebuild Executable (.exe)
-```bash
-npm run package:exe
-```
+### Issue: CAPTCHA auto-fill fails
+**Check**: Look at `udin_autofill_debug.png` in the project folder for debugging screenshot
+
+### Issue: ICAI login fails
+**Check**: 
+- Verify username format: `MEMBERSHIP_NO@icai.org`
+- Confirm password is correct
+- Check ICAI website is accessible: https://udin.icai.org/ICAI/login
+
+### Issue: Form doesn't auto-fill
+**Solution**: Run `RECORD_ICAI_STEPS.bat` to record new steps for your workflow
 
 ---
 
-## 🧪 38-Step End-to-End Acceptance Test Walkthrough
+## 📁 File Locations & Portability
 
-To verify the complete direct tax lifecycle in Demo Mode:
+**Important**: Your data is saved in the `StockStatementData` folder next to this tool.
 
-1. **Ingest Notice**: Go to **Communication Inbox** → Click **Analyze Document** (or upload a PDF/Image).
-2. **AI Notice Analysis**: Verify extracted Entity, PAN, AY (2024-25), DIN, Section 143(2), and disputed issues (Section 43B, Section 14A, Section 80JJAA).
-3. **Dossier Creation**: Click **Confirm & Register Tax Matter**.
-4. **Issue Management**: Open **Tax Matters** → View created matter `DT-2026-0027`.
-5. **Checklists & SLA**: Navigate to **Information Requests** → Run **AI Evidence Gap Analysis**.
-6. **Simulate Reminder & Escalation**: Trigger **Send Reminder** and **Escalate** to demonstrate multi-tier SLA alerting.
-7. **Receive Business Evidence**: Click **Simulate Reply** to receive verified bank challans and ledgers.
-8. **Map Evidence**: Go to **Evidence Room** → **Evidence Matrix** → Link verified challans to Section 43B assertion as **Annexure 1**.
-9. **Draft Submission**: Open **Response Builder** → Click **AI Draft Submission** to generate the formal NFAC rebuttal.
-10. **Check Question Coverage**: Verify **100% Question Coverage** checklist.
-11. **Maker-Checker Approval**: Submit for review → Approve as Head of Tax.
-12. **e-Filing Submission**: Click **Submit via e-Proceedings** → Generate ITBA acknowledgement.
-13. **Compliance Closure**: Click **Close Compliance** while keeping assessment monitoring active.
-14. **Appellate & Order Tracking**: Record Assessment Order → Initiate Appeal before **CIT(Appeals)**.
-15. **Contingent Liability Update**: Open **Contingent Liability** → Review Ind AS 37 movement statement.
-16. **Executive Reporting**: Download the **Multi-Sheet Excel Workbook** and **Executive MIS PDF**.
-17. **Full Data Backup**: Click **Download Complete Tax Data (ZIP)** to verify the backup repository.
+To move the tool to another computer:
+1. Copy the entire project folder
+2. The `StockStatementData` folder moves with it
+3. All your client data, profiles, and settings come along
 
 ---
 
-## 👥 User Roles & Access Control Matrix (RBAC)
+## 🔐 Security Notes
 
-| Role | View | Create | Edit | Review | Approve | Submit | Export | Archive | Administer |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Super Admin** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Head of Tax** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| **Tax Manager** | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
-| **Tax User** | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **Tax Reviewer** | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **Business Group Head**| ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Finance User** | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **External Consultant**| ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-
-*(Switch users dynamically in the top navigation bar to test role-specific interfaces.)*
+⚠️ **Be Careful**:
+- `profiles.json` contains your ICAI credentials in **plain text**
+- Keep this file **SECURE** and **BACKED UP**
+- Never share this file with unauthorized persons
+- Consider encrypting sensitive data in production use
 
 ---
 
-## 🔒 Security & Compliance Governance
+## 📌 ICAI Compliance
 
-- **Zero Secret Exposure**: All API keys, tokens, and credentials reside server-side in environment configurations.
-- **Data Protection**: AES-256 storage compatibility with role-based document access restrictions.
-- **Audit Immutability**: Every login, edit, checklist update, submission, and export action is logged with timestamp, user identity, and cryptographic reference.
-- **Legal Privilege Protection**: Dedicated confidentiality tiers for attorney-client and litigation-sensitive dossiers.
+✅ This tool is designed to assist CAs in compliance with:
+- ICAI guidelines for UDIN (Unique Document Identification Number)
+- Stock Statement audit requirements
+- Drawing Power Certificate generation
+- Banking regulations for credit audits
+
+⚠️ **Disclaimer**: This tool is a **helper application**. Final certificate submission and UDIN generation happens through the **official ICAI portal**. CAs remain responsible for all submitted documents.
 
 ---
 
-## 📄 License & Intellectual Property
+## 🎓 For Beginners (Step-by-Step)
 
-Designed for enterprise corporate direct tax governance. © 2026 Tax Command Centre. All rights reserved.
-# Tally Converter
+If you're new to this tool, follow these steps:
 
-Converts Excel, CSV, PDF, and image (JPG/PNG) accounting documents into
-TallyPrime-compatible import XML - running entirely offline on your
-Windows PC. No data leaves your computer.
+1. Read `DOCUMENTATION.md` (detailed process guide)
+2. Check `DATA_STRUCTURE.md` (understand your data format)
+3. Run the tool with test client first
+4. Refer to troubleshooting section if any issue
 
-```
-Excel / CSV / PDF / JPG / PNG
-        |
-Read accounting data
-        |
-OCR when necessary (local Tesseract)
-        |
-Extract transactions
-        |
-Normalize accounting data
-        |
-Validate
-        |
-Map Tally ledgers/items
-        |
-Human review
-        |
-Generate TallyPrime-compatible XML
-        |
-Export XML
-        |
-Import into TallyPrime
-```
+---
 
-## Important: test before relying on this for real books
+## 🤝 Support & Maintenance
 
-The generated XML follows TallyPrime's documented voucher-import
-structure (ENVELOPE / HEADER / BODY / DATA / TALLYMESSAGE / VOUCHER),
-but different TallyPrime versions and company configurations can
-require different fields. **Before using this for real accounting
-data, test the generated XML against a TallyPrime test/sample
-company** (Gateway of Tally &rarr; Import Data) and adjust the ledger
-role mappings in Settings/Mappings as needed for your setup.
-
-## What this does NOT do
-
-- It never invents data. If a field (date, party, amount, GSTIN,
-  ledger, item, tax, bank reference) can't be confidently determined,
-  the transaction is marked `REVIEW_REQUIRED` instead of guessed.
-- It never sends anything to TallyPrime or anywhere else without you
-  explicitly clicking "Send to Tally" - the default is always
-  **Export XML Only**.
-- It never uses cloud OCR or any external API. OCR runs locally via
-  Tesseract.
-
-## Quick start (for developers/technical users)
-
-See [INSTALLATION.md](INSTALLATION.md) for the full step-by-step guide
-covering both "just run it from source" and "build the Windows
-installer" paths. In short:
+For technical issues:
+- Check the `udin_autofill_debug.png` screenshot
+- Review step recordings in `StockStatementData/recordings/`
+- Run `RECORD_ICAI_STEPS.bat` to capture your specific workflow
 
 To execute the automated test suites verifying room gates, search indexing, access control, and database operations:
 ```bash
@@ -410,27 +407,37 @@ cd frontend
 npm install
 npm run dev
 ```
+---
 
-Then open the URL printed in the backend terminal (defaults to
-`http://127.0.0.1:8000`).
+## 📝 Version Info
 
-## For end users
+- **Tool Version**: V21 (Fixed)
+- **Last Updated**: August 2026
+- **Python Requirement**: 3.7+
+- **Selenium Version**: Latest (auto-updated)
 
-If you received `TallyConverterSetup.exe` from your developer/IT team,
-see [USER_GUIDE.md](USER_GUIDE.md) - you don't need Python, Node.js,
-or anything else installed.
+---
 
-## Documentation
+## ✨ Features Roadmap
 
-- [INSTALLATION.md](INSTALLATION.md) - setting up a dev environment,
-  installing Tesseract, and building the Windows installer
-- [USER_GUIDE.md](USER_GUIDE.md) - how to import files, review
-  transactions, map ledgers, and export/import into Tally
-- [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md) - architecture, project
-  layout, how to extend voucher types, running tests
+Future enhancements:
+- [ ] Batch UDIN generation for multiple clients
+- [ ] Excel import/export for client data
+- [ ] PDF certificate download automation
+- [ ] Email notification system
+- [ ] Data encryption for credentials
+- [ ] Web-based interface (non-browser dependent)
 
-## License / ownership
+---
 
-This project was generated as a starting point for your own internal
-tool. There is no license file included - add one appropriate to your
-situation before distributing it outside your organization.
+## 📞 Contact & Credits
+
+**Developer**: Atul Talaviya (CA, ICAI Member #159692)  
+**Firm**: Shapy & Associates  
+**ICAI FRN**: 124286W  
+**Tool Purpose**: AICA Level 2 Capstone Project  
+
+---
+
+**Last Modified**: August 26, 2026  
+**Status**: ✅ Production Ready

@@ -1,6 +1,6 @@
 {
-  "name": "AssetTrust AI — Fixed Asset Governance & Control Tower",
-  "description": "Agentic Fixed Asset Governance, Risk Control & Audit-Readiness Platform for CFOs, Finance Leaders, and Internal Auditors under Ind AS, Companies Act & Tax Frameworks.",
+  "name": "ParcelDesk",
+  "description": "Digital inward and outward parcel logbook with real-time tracking reference lookup, live camera parcel photo capture with timestamp, scanned proof of delivery, automated stakeholder notifications, RBAC, and audit analytics.",
   "requestFramePermissions": ["camera"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
